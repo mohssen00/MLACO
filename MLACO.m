@@ -1,7 +1,7 @@
 function [pheromones] = UFSACO2(X, initPheromone, nCycle, decayRate, featureCorrelation, featureLabelCorrelation, heuristicMethod)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Input:
-%       X                           - n × d matrix, d dimensional training set with n patterns
+%       X                           - n Ã— d matrix, d dimensional training set with n patterns
 %       initPheromone               - featrues initial pheromone matrix.
 %       nCycle                      - maximum number of cycles that algorithm repeated.
 %       decayRate                   - define the decay rate of the pheromone on each feature.
@@ -21,7 +21,7 @@ pheromones = initPheromone;
 % else
 %     nAnt = nFeautures;
 % end
-nAnt = 50;
+nAnt = 25;
 
 % NF - the number of features selected by each agent in each cycle.
 
@@ -33,7 +33,7 @@ for c=1:nCycle
     
     for ant=1:nAnt
 %         NF = randi([1, nFeautures]);
-        NF = floor(nFeautures / 6);
+        NF = floor(nFeautures / 2);
         % fprintf(' ant : %i / %i \n', ant, nAnt);
         FC(ant, :) = moveAnt(randomAnts(ant), pheromones, ...
             NF, nFeautures, featureCorrelation, featureLabelCorrelation, heuristicMethod);
