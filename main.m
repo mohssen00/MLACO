@@ -16,7 +16,7 @@ for d=1:length(datasets)
     fRange = 10:10:100;
     bucketNum = length(fRange);
 
-    iters = 15;
+    iters = 40;
     % 1.accuracy, 2.HammingLoss, 3.RankingLoss, 4.OneError, 5.Coverage, 6.Average_Precision, 7.time
     aco1_acc = zeros(iters, bucketNum);
     aco1_hamming = zeros(iters, bucketNum);
